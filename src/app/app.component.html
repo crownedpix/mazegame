@@ -1,0 +1,12 @@
+
+<table>
+  <tr *ngFor="let x of setGridx">
+    <td *ngFor="let y of setGridy">
+      <span [ngClass]="setRandomBlob(x,y)" class="sp"></span>
+    </td>
+  </tr>
+</table>
+<div id="generate">
+
+</div>
+{{randomnum | json}}
