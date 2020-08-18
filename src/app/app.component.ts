@@ -33,15 +33,19 @@ export class AppComponent {
       // w,a,s,d keys working on the dashboard
       console.log(e['key']);
       if(e['key'] === 'w'){
+        this.steps++;
         this.playerx--;
       }
       if(e['key'] === 'a'){
+        this.steps++;
         this.playery--;
       }
       if(e['key'] === 's'){
+        this.steps++;
         this.playerx++;
       }
       if(e['key'] === 'd'){
+        this.steps++;
         this.playery++;
       }
       if(this.playerx > Number(this.gridx)){
@@ -57,7 +61,7 @@ export class AppComponent {
         this.playery = Number(this.gridy);
       }
       let c = Number(this.playerx+''+this.playery);
-      this.steps++;
+      
       if(this.randomnum.includes(c)){
         this.randomnum.splice(this.randomnum.indexOf(c),1);
         setTimeout(()=>{if(this.randomnum.length == 0){
@@ -68,8 +72,18 @@ export class AppComponent {
   }
 
   taketheGrids() {
-    this.gridx = prompt("enter the width of the grid");
-    this.gridy = prompt("enter the height of the grid");
+    this.gridy = prompt("Enter the width of the Maze in Integer. Ex 10.");
+    this.gridx = prompt("Enter the height of the Maze in Integer. Ex 10.");
+    if(Number(this.gridy) > 40){
+      confirm("Number of width must be less than or equal to 40");
+      this.setGridx = [];
+      this.setGridy = [];
+      this.taketheGrids()
+    } else {
+      this.generateGrid();
+    }
+  }
+  generateGrid(){
     let a = 0;
     // Considering the highest of them all
     for (let i = 0; i < Number(this.gridx); i++) {

@@ -1,17 +1,22 @@
-
-<table>
-  <tr *ngFor="let x of setGridx">
-    <td *ngFor="let y of setGridy">
-      <span [ngClass]="setRandomBlob(x,y)" class="sp"></span>
-    </td>
-  </tr>
-</table>
-<div id="generate">
-
+<div class="centee">
+  <h3>Maze Game</h3>
+  {{gridx}}
+  {{gridy}}
+  <p>A game to generate random grid with specific number of Enemies on the grid at random places. 
+    A hero which can be moved to capture all enemies counting the steps below.</p>
+  <table>
+    <tr *ngFor="let x of setGridx">
+      <td *ngFor="let y of setGridy">
+        <span [ngClass]="setRandomBlob(x,y)" class="sp"></span>
+      </td>
+    </tr>
+  </table>
+  <div id="generate">
+  
+  </div>
+  <div class="instru">
+    <h3>Steps: {{steps}}</h3>
+    <p>1) Use W,A,S,D keys to navigate the green cube to the red cube.</p>
+    <p>2) Do it in less number of steps possible. Clear the board.</p>
+  </div>
 </div>
-<div class="instru">
-  <h1>Steps: {{steps}}</h1>
-  <p>1) Use W,A,S,D keys to navigate the green cube to the red cube.</p>
-  <p>2) Do it in less number of steps possible. Clear the board.</p>
-</div>
-
